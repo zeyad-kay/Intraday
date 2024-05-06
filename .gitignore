@@ -1,0 +1,5 @@
+venv
+*.csv
+*.zip
+5secdata/
+firstratedata_tick_bundle_sample/
