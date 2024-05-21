@@ -4,8 +4,6 @@ import numpy as np
 import pandas as pd
 import pytz
 
-util.startLoop()
-
 ib = IB()
 ib.connect('127.0.0.1', 7497, clientId=1)
 
@@ -13,9 +11,7 @@ contract = Stock(symbol='SPY',exchange='ARCA',currency='USD')
 
 ib.qualifyContracts(contract)
 
-# cur_time = dt.datetime(2024, 4, 22, 9, 30, 0)
-
-start_day = dt.date(2024, 4, 22)
+start_day = dt.date(2024, 5, 13)
 end_day = dt.date.today()
 
 cur_day = start_day
@@ -57,20 +53,3 @@ while cur_day <= end_day:
         df.to_csv(f'C:\\Users\\zeyad\\Desktop\\Intraday\\historical_spy_trades.csv',index=False,mode='a',header=False)
 
     cur_day = cur_day + dt.timedelta(days=1)
-
-
-    # print(df.groupby("price").vol.sum().reset_index().sort_values("vol"))
-    # print(df)
-
-
-# print(time_sales)
-
-
-# ############3
-# ticker = ib.reqTickByTickData(contract, 'Last')
-# ib.sleep(1)
-# print(ticker)
-
-# ib.cancelTickByTickData(contract, 'Last')
-# ###############################
-
